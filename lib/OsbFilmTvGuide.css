@@ -3,8 +3,7 @@
 
 .filmTvGuide h1, .filmTvGuide h2, .filmTvGuide h3, .filmTvGuide h4, .filmTvGuide h5, .filmTvGuide p {
   font-family: 'Roboto', sans-serif;
-  font-weight: 300;
-  color: #000; }
+  font-weight: 300; }
 
 .filmTvGuide .btn-primary {
   background-color: #0285E3;
