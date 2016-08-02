@@ -5,8 +5,10 @@
   "main": "OsbFilmTvGuide.js",
   "scripts": {
     "watch": "tsc -p src -w",
-    "build": "rm -rf lib && tsc -p src",
-    "build-css": "node-sass --include-path scss src/assets/scss/OsbFilmTvGuide.scss lib/OsbFilmTvGuide.css"
+    "build": "npm run build-typescript && npm run build-css && npm run move-template && npm run move-fonts",
+    "build-typescript": "rm -rf lib && tsc -p src",
+    "build-css": "node-sass --include-path scss src/assets/scss/OsbFilmTvGuide.scss lib/OsbFilmTvGuide.css",
+    "move-template": "copyfiles -f src/OsbFilmTvGuide.html lib"
   },
   "license": "MIT",
   "devDependencies": {
@@ -21,6 +23,7 @@
     "@angular/http": "2.0.0-rc.1",
     "@angular/platform-browser": "2.0.0-rc.1",
     "@angular/platform-browser-dynamic": "2.0.0-rc.1",
+    "copyfiles": "^1.0.0",
     "rxjs": "5.0.0-beta.6",
     "zone.js": "^0.6.12",
     "scrollmagic": "^2.0.5"
