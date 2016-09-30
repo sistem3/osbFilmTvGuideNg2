@@ -5,7 +5,7 @@
   "main": "OsbFilmTvGuide.js",
   "scripts": {
     "watch": "tsc -p src -w",
-    "build": "npm run build-typescript && npm run build-css && npm run move-template && npm run move-fonts",
+    "build": "npm run build-typescript && npm run build-css && npm run move-template",
     "build-typescript": "rm -rf lib && tsc -p src",
     "build-css": "node-sass --include-path scss src/assets/scss/OsbFilmTvGuide.scss lib/OsbFilmTvGuide.css",
     "move-template": "copyfiles -f src/OsbFilmTvGuide.html lib"
