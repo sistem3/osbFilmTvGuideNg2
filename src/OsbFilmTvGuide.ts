@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import { Http, HTTP_PROVIDERS } from '@angular/http';
 import 'ScrollMagic';
 declare let ScrollMagic;
+let scrollScene, scrollController;
 
 @Component({
     selector: 'osb-film-tv-guide',
@@ -46,6 +47,16 @@ export class OsbFilmTvGuide {
         }
         this.getData(this.section, this.searchTerm);
         //console.log(this.user);
+        var holder = this;
+        window.onbeforeunload = function(e) {
+            holder.destroyEvents();
+        };
+    }
+
+    destroyEvents() {
+        if (scrollScene) {
+            scrollScene.destroy();
+        }
     }
 
     addFavourite(id) {
@@ -151,15 +162,15 @@ export class OsbFilmTvGuide {
             holder.checkWatched(element.id);
         });
         setTimeout(function() {
-            var controller = new ScrollMagic.Controller();
-            var scene = new ScrollMagic.Scene({triggerElement: '#filmLoader', triggerHook: 'onEnter'})
-                .addTo(controller)
+            scrollController = new ScrollMagic.Controller();
+            scrollScene = new ScrollMagic.Scene({triggerElement: '#filmLoader', triggerHook: 'onEnter'})
+                .addTo(scrollController)
                 .on('enter', function (e) {
                     if (document.querySelector('#filmLoader').className.indexOf('active') == -1) {
                         holder.getMoreData();
                     }
                 });
-            scene.update();
+            scrollScene.update();
         }, 500);
     }
 
