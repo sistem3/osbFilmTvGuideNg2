@@ -18,6 +18,7 @@ export declare class OsbFilmTvGuide {
     };
     sections: any[];
     constructor(http: Http);
+    destroyEvents(): void;
     addFavourite(id: any): void;
     checkFavourites(id: any): void;
     addWatched(id: any): void;
