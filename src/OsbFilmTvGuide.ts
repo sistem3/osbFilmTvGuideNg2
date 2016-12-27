@@ -6,8 +6,8 @@ let scrollScene, scrollController;
 
 @Component({
     selector: 'osb-film-tv-guide',
-    templateUrl: 'vendor/osb-film-tv-guide/lib/OsbFilmTvGuide.html',
-    styleUrls: ['vendor/osb-film-tv-guide/lib/OsbFilmTvGuide.css']
+    templateUrl: 'node_modules/osb-film-tv-guide/lib/OsbFilmTvGuide.html',
+    styleUrls: ['node_modules/osb-film-tv-guide/lib/OsbFilmTvGuide.css']
 })
 export class OsbFilmTvGuide {
     isLoading = true;
@@ -36,7 +36,7 @@ export class OsbFilmTvGuide {
         this.searchTerm = 'popular';
         this.pageNumber = 1;
         this.sections = [
-            {name: 'Popular movies', section: 'movie', searchTerm: 'popular', icon: 'fa-film'},
+            {name: 'Popular Movies', section: 'movie', searchTerm: 'popular', icon: 'fa-film'},
             {name: 'Upcoming Movies', section: 'movie', searchTerm: 'upcoming', icon: 'fa-film'},
             {name: 'Top Rated Movies', section: 'movie', searchTerm: 'top_rated', icon: 'fa-film'},
             {name: 'Popular TV Shows', section: 'tv', searchTerm: 'popular', icon: 'fa-desktop'},
@@ -47,7 +47,7 @@ export class OsbFilmTvGuide {
         }
         this.getData(this.section, this.searchTerm);
         //console.log(this.user);
-        var holder = this;
+        let holder = this;
         window.onbeforeunload = function(e) {
             holder.destroyEvents();
         };
@@ -61,7 +61,7 @@ export class OsbFilmTvGuide {
 
     addFavourite(id) {
         if (this.user.favourites) {
-            var exists = false;
+            let exists = false;
             this.user.favourites.forEach(function(element, index, array) {
                 if(element.id == id) {
                     exists = true;
@@ -80,7 +80,7 @@ export class OsbFilmTvGuide {
         this.user.favourites.forEach(function(element) {
             if (element.id === id) {
                 setTimeout(function() {
-                    var matchElement = document.getElementById(id);
+                    let matchElement = document.getElementById(id);
                     matchElement.querySelector('.favouriteBtn').classList.add('favouriteActive');
                 }, 100);
             }
@@ -89,7 +89,7 @@ export class OsbFilmTvGuide {
 
     addWatched(id) {
         if (this.user.watched) {
-            var exists = false;
+            let exists = false;
             this.user.watched.forEach(function(element, index, array) {
                 if(element.id == id) {
                     exists = true;
@@ -108,7 +108,7 @@ export class OsbFilmTvGuide {
         this.user.watched.forEach(function(element) {
             if (element.id === id) {
                 setTimeout(function() {
-                    var matchElement = document.getElementById(id);
+                    let matchElement = document.getElementById(id);
                     matchElement.querySelector('.watchedBtn').classList.add('watchedActive');
                 }, 100);
             }
@@ -131,8 +131,8 @@ export class OsbFilmTvGuide {
     }
 
     updateData(data) {
-        var holder = this;
-        var updateData = data.json();
+        let holder = this;
+        let updateData = data.json();
         updateData.results.forEach(function(element) {
             holder.feedData.push(element);
         });
@@ -153,8 +153,8 @@ export class OsbFilmTvGuide {
     }
 
     setData(data) {
-        var holder = this;
-        var feedData = data.json();
+        let holder = this;
+        let feedData = data.json();
         this.isLoading = false;
         this.feedData = feedData.results;
         feedData.results.forEach(function(element) {
