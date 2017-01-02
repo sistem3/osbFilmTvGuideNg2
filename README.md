@@ -8,5 +8,6 @@ This is a Javascript Web Component designed to display upcoming/popular Movie an
 * [Angular 2](https://angular.io/)
 * [Bootstrap 3](http://getbootstrap.com)
 * [Font Awesome](http://fontawesome.io)
+* [ScrollMagic](http://scrollmagic.io/)
 
 _Please note this project is still in an experimental phase_
