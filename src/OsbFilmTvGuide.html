@@ -4,7 +4,10 @@
         <p>Powered by TMDb</p>
         <nav>
             <ul class="list-unstyled list-inline">
-                <li *ngFor="let items of sections">
+                <li class="hidden-md hidden-lg">
+                    <button class="btn btn-primary" (click)="navHidden = !navHidden"><i class="fa fa-bars"></i></button>
+                </li>
+                <li *ngFor="let items of sections" class="hidden-sm hidden-xs" [ngClass]="{'hidden-sm hidden-xs': !navHidden}">
                     <button class="btn btn-primary" (click)="getData(items.section, items.searchTerm)"><span>{{items.name}}</span> <i class="fa {{items.icon}}"></i></button>
                 </li>
             </ul>
